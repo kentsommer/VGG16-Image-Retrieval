@@ -5,7 +5,7 @@ How to use:
 * Install TensorFlow by following instructions here: https://www.tensorflow.org/versions/r0.10/get_started/os_setup.html
 * Uncompress the dataset folder
 * Simply execute the vgg_example.py file
-  * python vgg_example.py
+  * python vgg_example16.py
 
 Once it is up and running, every so often you will see prints similar to the following:
 
