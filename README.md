@@ -10,12 +10,13 @@ How to use:
 Once it is up and running, every so often you will see prints similar to the following:
 
 Current Correct list: ['image_00748.jpg', 'image_00749.jpg', 'image_00750.jpg', 'image_00751.jpg']
-Matches are: 
-	Distance: 2.45867538452, FileName: image_00748.jpg
-	Distance: 22.8059749603, FileName: image_00751.jpg
-	Distance: 37.0147171021, FileName: image_00750.jpg
-	Distance: 38.9278831482, FileName: image_00749.jpg
-	Precision@4: 1.0
+
+Matches are:
+ * Distance: 2.45867538452, FileName: image_00748.jpg
+ * Distance: 22.8059749603, FileName: image_00751.jpg
+ * Distance: 37.0147171021, FileName: image_00750.jpg
+ * Distance: 38.9278831482, FileName: image_00749.jpg
+ * Precision@4: 1.0
 
 This shows the similarity distance between the query and the matches as well as the filename of the matched images. 
 This also shows the precision@4 compared to the ground truth. A file containing these prints as well as final results
