@@ -3,6 +3,9 @@ Uses TensorFlow and FC2 features to match test images to the same category given
 
 How to use:
 * Install TensorFlow by following instructions here: https://www.tensorflow.org/versions/r0.10/get_started/os_setup.html
+* Install python pre-reqs
+  * sudo pip install numpy
+  * sudo pip install scipy
 * Uncompress the dataset folder
 * Simply execute the vgg_example.py file
   * python vgg16_example.py
