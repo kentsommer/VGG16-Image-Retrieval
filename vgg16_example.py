@@ -290,6 +290,8 @@ if __name__ == '__main__':
 
     #Timer and precision count total + open file for saving data
     t0 = time.time()
+    shouldCompute = True
+    feat_dict = {}
     total_precision_cn = 0
     fp = open("Last_Run.txt", 'w')
     fp.truncate()
@@ -321,17 +323,21 @@ if __name__ == '__main__':
 
         # Retrieve feature vector for test image
         for j in datalist_test:
-            img_test = imread(j)
-            img_test = imresize(img_test, (224, 224))
+            if shouldCompute:
+                img_test = imread(j)
+                img_test = imresize(img_test, (224, 224))
 
-            # Extract image descriptor in layer fc2/Relu. If you want, change fc2 to fc1
-            layer_test = sess.graph.get_tensor_by_name('fc2/Relu:0')
-            # layer_test = sess.graph.get_tensor_by_name('fc1/Relu:0')
-            # Run the session for feature extract at 'fc2/Relu' layer
-            _feature_test = sess.run(layer_test, feed_dict={vgg.imgs: [img_test]})
-            # Convert tensor variable into numpy array
-            # It is 4096 dimension vector
-            feature_test = np.array(_feature_test)
+                # Extract image descriptor in layer fc2/Relu. If you want, change fc2 to fc1
+                layer_test = sess.graph.get_tensor_by_name('fc2/Relu:0')
+                # layer_test = sess.graph.get_tensor_by_name('fc1/Relu:0')
+                # Run the session for feature extract at 'fc2/Relu' layer
+                _feature_test = sess.run(layer_test, feed_dict={vgg.imgs: [img_test]})
+                # Convert tensor variable into numpy array
+                # It is 4096 dimension vector
+                feature_test = np.array(_feature_test)
+                feat_dict[j] = feature_test
+            else:
+                feature_test = feat_dict[j]
 
             # Calculate Euclidean distance between two feature vectors
             if dist_type == "euc":
@@ -362,11 +368,12 @@ if __name__ == '__main__':
         total_precision_cn += num_correct/4.0
         print("\t" + "Precision@4: " + str(num_correct/4.0) + "\n\n")
         fp.write("\t" + "Precision@4: " + str(num_correct/4.0) + "\n\n")
+        shouldCompute = False
 
     t1 = time.time()
     total = t1-t0
-    print("Total time taken for 250 images: " + str(total))
-    fp.write("Total time taken for 250 images: " + str(total) + "\n")
+    print("Total time taken for 250 images (minutes): " + str(total/60))
+    fp.write("Total time taken for 250 images (minutes): " + str(total/60) + "\n")
     print("Total Precision@4 Avg: " + str(total_precision_cn/250.0))
     fp.write("Total Precision@4 Avg: " + str(total_precision_cn/250.0))
     fp.close()
