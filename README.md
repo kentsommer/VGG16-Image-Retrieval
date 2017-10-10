@@ -3,6 +3,7 @@ Uses TensorFlow and FC2 features to match test images to the same category given
 
 How to use:
 * Run the download_dataset_and_weights.sh script
+  * ./download_dataset_and_weights.sh
 * Simply execute the vgg_example.py file
   * python vgg16_example.py
 
