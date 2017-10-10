@@ -2,11 +2,7 @@
 Uses TensorFlow and FC2 features to match test images to the same category given a query image as input
 
 How to use:
-* Install TensorFlow by following instructions here: https://www.tensorflow.org/versions/r0.10/get_started/os_setup.html
-* Install python pre-reqs
-  * sudo pip install numpy
-  * sudo pip install scipy
-* Uncompress the dataset folder
+* Run the download_dataset_and_weights.sh script
 * Simply execute the vgg_example.py file
   * python vgg16_example.py
 
