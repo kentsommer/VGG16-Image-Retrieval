@@ -18,9 +18,6 @@ Matches are:
  * Distance: 38.9278831482, FileName: image_00749.jpg
  * Precision@4: 1.0
 
-Notes:
- * If you are having issues with the dataset .zip file please try downloading from here: https://drive.google.com/file/d/0B5DVPd_zGgc8Vm9HRVFkSmpCT1k/view?usp=sharing
-
 This shows the similarity distance between the query and the matches as well as the filename of the matched images. 
 This also shows the precision@4 compared to the ground truth. A file containing these prints as well as final results
 will be created as "Last_Run.txt"
